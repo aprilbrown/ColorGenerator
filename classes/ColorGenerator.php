@@ -1,9 +1,10 @@
 <?PHP
 include ("ColorPalette.php");
 
-class ColorGenerator {
+class ColorGenerator
+{
 
-    public function generateArray($count, $palette)
+    public function generateArray($count, $palette=0, $variation=0)
     {
         $colors = array();
 
@@ -21,7 +22,7 @@ class ColorGenerator {
             $colors[$color]['text_color'] = $textColor;
 
             if($palette > 0){
-                $paletteColors = $this->colorPalette($color, $palette);
+                $paletteColors = $this->colorPalette($color, $palette, $variation);
                 $colors += $paletteColors;
             }
         }
@@ -59,10 +60,10 @@ class ColorGenerator {
         return $text_color;
     }
 
-    private function colorPalette($initialColor, $count)
+    private function colorPalette($initialColor, $count, $variation)
     {
         $colorPalette = new ColorPalette($initialColor);
-        $colorPalette = $colorPalette->createPalette($count);
+        $colorPalette = $colorPalette->createPalette($count, $variation);
 
         foreach($colorPalette as $row => $color){
             $colors[$color]['text_color'] = $this->textColor($color);

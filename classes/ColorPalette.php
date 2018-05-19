@@ -21,7 +21,7 @@ class ColorPalette{
 	}
 	return '#'.implode($rgb);
 	}
-	public function createPalette($colorCount=4){
+	public function createPalette($colorCount=4, $variation=20){
 		$colorPalette = array();
 		for($i=1; $i<=$colorCount; $i++){
 			if($i == 1){
@@ -30,7 +30,7 @@ class ColorPalette{
 			}else{
 				$color = $newColor;
 			}
-			$colorVariation = -($i * 5);
+			$colorVariation = -($i * $variation);
 
 			$newColor = $this->color_mod($color, $colorVariation);
 
