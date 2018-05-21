@@ -12,7 +12,7 @@ class ColorGenerator
             $randomFunction = $functions[array_rand($functions)];
 
             $color = call_user_func($randomFunction);
-            $text = 'Color by Generator ' . str_replace('ColorGenerator::random','',$randomFunction);
+            $text = 'Generator ' . str_replace('ColorGenerator::random','',$randomFunction);
 
             $textColor = $this->textColor($color);
 
