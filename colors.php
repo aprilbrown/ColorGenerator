@@ -32,7 +32,7 @@
 
         $colorGenerator = new ColorGenerator();
 
-        $colors = $colorGenerator->generateArray(1);
+        $colors = $colorGenerator->generateArray(12);
         ?>
 
         <h1>Randomly Generated Colors</h1>

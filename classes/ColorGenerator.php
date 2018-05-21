@@ -47,11 +47,13 @@ class ColorGenerator
 
     private function textColor($color)
     {
+        $color = str_replace('#', '', $color);
+
         $red = hexdec(substr($color,0,2));
         $green = hexdec(substr($color,2,2));
         $blue = hexdec(substr($color,4,2));
 
-        if($red + $green + $blue > 382){
+        if(($red*0.299 + $green*0.587 + $blue*0.114) > 186){
             $text_color = 'black';
         }else{
             $text_color = 'white';
